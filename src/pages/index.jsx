@@ -7,12 +7,18 @@ import SEO from "../components/seo"
 const IndexPage = () => (
   <section>
     <Image />
-    <SEO />
+    <SEO title="Home" />
     <div style={{ paddingTop: "20vh", paddingLeft: "10vw" }}>
-      <h1>Emotion Analysis</h1>
+      <h1
+        style={{
+          userSelect: "none",
+        }}
+      >
+        Emotion Analysis
+      </h1>
     </div>
     <div style={{ paddingLeft: "10vw", paddingTop: "5vh" }}>
-      <Link to="/camera" className="button">
+      <Link to="/" className="button">
         Go to Camera
       </Link>
       <Link to="/video" className="button">

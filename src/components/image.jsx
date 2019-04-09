@@ -1,6 +1,6 @@
-import React from "react";
-import { StaticQuery, graphql } from "gatsby";
-import Img from "gatsby-image";
+import React from "react"
+import { StaticQuery, graphql } from "gatsby"
+import Img from "gatsby-image"
 
 const Image = () => (
   <StaticQuery
@@ -24,10 +24,11 @@ const Image = () => (
           top: 0,
           width: "100%",
           height: "100%",
-          zIndex: "-1"
+          zIndex: "-1",
+          userSelect: "none",
         }}
       />
     )}
   />
-);
-export default Image;
+)
+export default Image

@@ -12,8 +12,8 @@ import Axios from "axios"
 
 const styles = {
   paper: {
-    width: "50%",
-    height: "50vh",
+    width: "40%",
+    maxHeight: "50vh",
     overflowY: "auto",
     backgroundColor: "transparent",
   },
@@ -37,7 +37,7 @@ class ListTable extends Component {
   }
 
   updateList = () => {
-    Axios.get("https://38a2d2af.ngrok.io/list")
+    Axios.get("https://5ecafb6e.ngrok.io/list")
       .then(res => {
         this.setState({ job_list: res["data"] })
       })
@@ -60,9 +60,15 @@ class ListTable extends Component {
               </Typography>
             </CardContent>
             <CardActions>
-              <Button variant="contained" color="primary">
-                View Details
-              </Button>
+              {row[1] == 1 && (
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={() => this.props.select(row[0])}
+                >
+                  View Details
+                </Button>
+              )}
             </CardActions>
           </Card>
         ))}
