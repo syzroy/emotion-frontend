@@ -1,11 +1,13 @@
-import React from "react";
-import { Link } from "gatsby";
-import Image from "../components/image";
-import "../styles/layout.css";
+import React from "react"
+import { Link } from "gatsby"
+import Image from "../components/image"
+import "../styles/layout.css"
+import SEO from "../components/seo"
 
 const IndexPage = () => (
   <section>
     <Image />
+    <SEO />
     <div style={{ paddingTop: "20vh", paddingLeft: "10vw" }}>
       <h1>Emotion Analysis</h1>
     </div>
@@ -18,6 +20,6 @@ const IndexPage = () => (
       </Link>
     </div>
   </section>
-);
+)
 
-export default IndexPage;
+export default IndexPage
