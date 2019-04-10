@@ -3,6 +3,7 @@ module.exports = {
     title: `Emotion Analysis`,
     description: `Web Application for CS 4099 SH Project`,
     author: `@ys51`,
+    backend: "https://5ecafb6e.ngrok.io/",
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -27,5 +28,6 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
+    `gatsby-plugin-sass`,
   ],
 }

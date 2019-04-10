@@ -3,6 +3,7 @@ import ListTable from "../components/listTable"
 import { Button } from "@material-ui/core"
 import Image from "../components/image"
 import SEO from "../components/seo"
+import VideoDetail from "../components/videoDetail"
 
 class VideoPage extends Component {
   constructor(props) {
@@ -56,7 +57,7 @@ class VideoPage extends Component {
         <section>
           <SEO title="Video Detail" />
           <Image />
-          
+          <VideoDetail id={this.state.selected} />
         </section>
       )
     }
