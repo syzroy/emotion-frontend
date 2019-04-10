@@ -37,7 +37,7 @@ class ListTable extends Component {
   }
 
   updateList = () => {
-    Axios.get("https://5ecafb6e.ngrok.io/list")
+    Axios.get("https://bf9f4f26.ngrok.io/list")
       .then(res => {
         this.setState({ job_list: res["data"] })
       })
@@ -60,7 +60,7 @@ class ListTable extends Component {
               </Typography>
             </CardContent>
             <CardActions>
-              {row[1] == 1 && (
+              {row[1] === 1 && (
                 <Button
                   variant="contained"
                   color="primary"

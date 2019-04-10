@@ -22,7 +22,7 @@ const IndexPage = () => (
     <div
       style={{ paddingLeft: "10vw", paddingTop: "5vh", position: "relative" }}
     >
-      <Link to="/" className="button">
+      <Link to="/camera" className="button">
         Go to Camera
       </Link>
       <Link to="/video" className="button">
