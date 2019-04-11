@@ -1,11 +1,10 @@
-import Grid from "@material-ui/core/Grid"
 import Button from "@material-ui/core/Button"
-
 import React, { Component } from "react"
 import Webcam from "react-webcam"
 import io from "socket.io-client"
 import AUTable from "../components/auTable"
 import SEO from "../components/seo"
+import Image from "../components/image"
 const uuidv4 = require("uuid/v4")
 
 class CameraPage extends Component {
@@ -14,7 +13,7 @@ class CameraPage extends Component {
     this.promise = Promise.resolve(true)
     this.state = {
       promise: Promise.resolve(true),
-      socket: io.connect("https://c237366e.ngrok.io"),
+      socket: io.connect("https://15065c52.ngrok.io"),
       width: 0,
       height: 0,
       classification: {},
@@ -42,19 +41,6 @@ class CameraPage extends Component {
       })
     })
   }
-
-  // componentDidMount() {
-  //   this.updateDimensions()
-  //   window.addEventListener("resize", this.updateDimensions)
-  // }
-
-  // componentWillUnmount() {
-  //   window.removeEventListener("resize", this.updateDimensions)
-  // }
-
-  // updateDimensions = () => {
-  //   this.setState({ width: window.innerWidth / 2, height: window.innerHeight })
-  // }
 
   setReference = webcam => {
     this.webcam = webcam
@@ -84,54 +70,42 @@ class CameraPage extends Component {
 
   render() {
     return (
-      <Grid container spacing={40}>
+      <div style={{ display: "inline-flex" }}>
         <SEO title="Camera" />
-        <Grid item xs={6}>
+        <Image />
+        <section style={{ marginRight: "1%" }}>
           <Webcam
             audio={false}
             ref={this.setReference}
             screenshotFormat="image/jpeg"
+            style={{
+              width: "100%",
+              height: "auto",
+            }}
           />
-        </Grid>
-        <Grid item xs={6}>
-          <Grid container alignItems="flex-start" justify="space-evenly">
-            <Grid item xs={3} className={"primary"}>
-              <Button
-                variant="contained"
-                color="primary"
-                onClick={this.startTimer}
-              >
-                Start Analysis
-              </Button>
-            </Grid>
-            <Grid item xs={3} className={"secondary"}>
-              <Button
-                variant="contained"
-                color="secondary"
-                onClick={this.clearTimer}
-              >
-                Stop Analysis
-              </Button>
-            </Grid>
-          </Grid>
-          <Grid
-            container
-            alignItems="flex-start"
-            justify="space-evenly"
-            className="container"
-          >
-            <Grid item xs={3}>
-              <AUTable id={this.state.file_id} data={this.state.regression} />
-            </Grid>
-            <Grid item xs={3}>
-              <AUTable
-                id={this.state.file_id}
-                data={this.state.classification}
-              />
-            </Grid>
-          </Grid>
-        </Grid>
-      </Grid>
+        </section>
+        <section style={{ width: "50vw" }}>
+          <section>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={this.startTimer}
+            >
+              Start Analysis
+            </Button>
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={this.clearTimer}
+            >
+              Stop Analysis
+            </Button>
+          </section>
+          <section style={{ width: "50%" }}>
+            <AUTable id={this.state.file_id} data={this.state.classification} name={'Action Unit Classification'} />
+          </section>
+        </section>
+      </div>
     )
   }
 }

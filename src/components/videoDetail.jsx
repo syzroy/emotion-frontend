@@ -26,7 +26,7 @@ class VideoDetail extends Component {
   }
 
   componentDidMount() {
-    Axios.get("https://c237366e.ngrok.io/data", {
+    Axios.get("https://15065c52.ngrok.io/data", {
       params: {
         id: this.props.id,
       },
@@ -48,11 +48,11 @@ class VideoDetail extends Component {
           )
           return aArr - bArr
         })
-        let urls = data.map(item => "https://c237366e.ngrok.io/" + item)
+        let urls = data.map(item => "https://15065c52.ngrok.io/" + item)
         this.setState({
           url_list: urls,
           csv_path:
-            "https://c237366e.ngrok.io/static/" + this.props.id + ".csv",
+            "https://15065c52.ngrok.io/static/" + this.props.id + ".csv",
           loading: false,
         })
       })
