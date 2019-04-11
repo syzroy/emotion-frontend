@@ -14,7 +14,7 @@ class CameraPage extends Component {
     this.promise = Promise.resolve(true)
     this.state = {
       promise: Promise.resolve(true),
-      socket: io.connect("https://bf9f4f26.ngrok.io"),
+      socket: io.connect("https://c237366e.ngrok.io"),
       width: 0,
       height: 0,
       classification: {},
