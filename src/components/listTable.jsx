@@ -37,7 +37,7 @@ class ListTable extends Component {
   }
 
   updateList = () => {
-    Axios.get("https://15065c52.ngrok.io/list")
+    Axios.get("http://127.0.0.1:5000/list")
       .then(res => {
         this.setState({ job_list: res["data"] })
       })

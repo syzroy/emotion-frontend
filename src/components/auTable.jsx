@@ -9,10 +9,6 @@ class AUTable extends Component {
     }
   }
 
-  componentDidMount() {
-    console.log("table mounted!")
-  }
-
   componentDidUpdate(prevProps) {
     let newProps = this.props
     if (prevProps.id !== newProps.id) {
