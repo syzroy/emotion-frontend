@@ -4,7 +4,6 @@ import { withStyles, Card, CardContent, Typography } from "@material-ui/core"
 const styles = {
   card: {
     height: "auto",
-    // width: "45%",
     maxHeight: "65vh",
     overflow: "auto",
     background:
@@ -19,7 +18,6 @@ const Table = props => {
   const data = props.data
   const name = props.name
   const classes = props.classes
-  console.log(data)
   let nonZero = []
   let index = 0
   for (let key in data) {
