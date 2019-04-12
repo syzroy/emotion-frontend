@@ -40,6 +40,11 @@ class CameraPage extends Component {
     })
   }
 
+  componentWillUnmount() {
+    clearInterval(this.timer)
+    // this.state.socket.disconnect()
+  }
+
   setReference = webcam => {
     this.webcam = webcam
   }
