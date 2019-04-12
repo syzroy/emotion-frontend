@@ -3,6 +3,7 @@ import Axios from "axios"
 import FrameDetail from "./frameDetail"
 import { Button, withStyles } from "@material-ui/core"
 import Frame from "./frame"
+import EmotionDetail from "./emotionDetail"
 
 const styles = {
   button: {
@@ -22,6 +23,7 @@ class VideoDetail extends Component {
       csv_path: null,
       loading: true,
       select_index: 0,
+      frame_paths: [],
     }
   }
 
@@ -51,9 +53,9 @@ class VideoDetail extends Component {
         let urls = data.map(item => "http://127.0.0.1:5000/" + item)
         this.setState({
           url_list: urls,
-          csv_path:
-            "http://127.0.0.1:5000/static/" + this.props.id + ".csv",
+          csv_path: "http://127.0.0.1:5000/static/" + this.props.id + ".csv",
           loading: false,
+          frame_paths: data,
         })
       })
       .catch(err => {
@@ -121,12 +123,26 @@ class VideoDetail extends Component {
             </div>
           </div>
         )}
-        {!this.state.loading && (
-          <FrameDetail
-            selected={this.state.select_index}
-            csv={this.state.csv_path}
-          />
-        )}
+        <section
+          style={{
+            display: "inline-flex",
+            width: "100vw",
+            justifyContent: `space-around`,
+          }}
+        >
+          {!this.state.loading && (
+            <FrameDetail
+              selected={this.state.select_index}
+              csv={this.state.csv_path}
+            />
+          )}
+          {!this.state.loading && (
+            <EmotionDetail
+              id={this.props.id}
+              frame={this.state.frame_paths[this.state.select_index]}
+            />
+          )}
+        </section>
       </section>
     )
   }

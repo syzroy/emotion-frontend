@@ -5,7 +5,7 @@ const styles = {
   card: {
     height: "auto",
     marginBottom: "1%",
-    width: "45%",
+    // width: "45%",
     maxHeight: "30vh",
     overflow: "auto",
     background:
