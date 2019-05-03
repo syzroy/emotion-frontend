@@ -12,6 +12,7 @@ class FrameDetail extends Component {
   }
 
   componentWillMount() {
+    console.log(this.props.csv)
     Axios.get(this.props.csv)
       .then(res => {
         this.setState({ csv: res["data"], loading: false })

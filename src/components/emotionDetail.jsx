@@ -26,7 +26,7 @@ class EmotionDetail extends Component {
   }
 
   render() {
-    Axios.get("http://127.0.0.1:5000/emotion", {
+    Axios.get("https://57fdabf5.ngrok.io/emotion", {
       params: {
         id: this.props.id,
         frame: this.props.frame,

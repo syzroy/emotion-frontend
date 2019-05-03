@@ -14,7 +14,7 @@ class CameraPage extends Component {
     this.promise = Promise.resolve(true)
     this.state = {
       promise: Promise.resolve(true),
-      socket: io.connect("http://127.0.0.1:5000/"),
+      socket: io.connect("https://57fdabf5.ngrok.io/"),
       width: 0,
       height: 0,
       classification: {},
@@ -42,7 +42,7 @@ class CameraPage extends Component {
 
   componentWillUnmount() {
     clearInterval(this.timer)
-    // this.state.socket.disconnect()
+    this.state.socket.disconnect()
   }
 
   setReference = webcam => {
@@ -51,7 +51,7 @@ class CameraPage extends Component {
 
   startTimer = () => {
     this.getAnalysis()
-    this.timer = setInterval(() => this.getAnalysis(), 3000)
+    this.timer = setInterval(() => this.getAnalysis(), 5000)
   }
 
   clearTimer = () => {

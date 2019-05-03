@@ -5,6 +5,7 @@ import Image from "../components/image"
 import SEO from "../components/seo"
 import VideoDetail from "../components/videoDetail"
 import { Link } from "gatsby"
+import Axios from "axios"
 
 class VideoPage extends Component {
   constructor(props) {
@@ -16,6 +17,20 @@ class VideoPage extends Component {
 
   select = id => {
     this.setState({ selected: id })
+  }
+
+  fileUpload = event => {
+    Array.from(event.target.files).forEach(file => {
+      let data = new FormData()
+      data.append("file", file)
+      Axios.post("https://57fdabf5.ngrok.io/upload", data)
+        .then(res => {
+          console.log(res.data)
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    })
   }
 
   render() {
@@ -46,18 +61,30 @@ class VideoPage extends Component {
             </Link>
           </section>
           <section style={{ paddingLeft: "15vw" }}>
-            <Button
-              variant="outlined"
-              component="span"
+            <input
+              accept="video/*"
               style={{
-                marginBottom: "1%",
-                color: "white",
-                borderColor: "white",
-                border: "solid",
+                display: "none",
               }}
-            >
-              Upload
-            </Button>
+              id="outlined-button-file"
+              multiple
+              type="file"
+              onChange={this.fileUpload}
+            />
+            <label htmlFor="outlined-button-file">
+              <Button
+                variant="outlined"
+                component="span"
+                style={{
+                  marginBottom: "1%",
+                  color: "white",
+                  borderColor: "white",
+                  border: "solid",
+                }}
+              >
+                Upload
+              </Button>
+            </label>
           </section>
 
           <section
